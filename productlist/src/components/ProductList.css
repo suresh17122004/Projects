@@ -1,0 +1,8 @@
+/* Flex‑only, responsive layout for the list container */
+.product-container {
+  display: flex;          /* lay cards in a row */
+  flex-wrap: wrap;        /* wrap to new line when full */
+  gap: 1rem;              /* space between cards */
+  justify-content: center;/* centre the row(s) horizontally */
+  padding: 0.5rem;        /* a little breathing room */
+}
