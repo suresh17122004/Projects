@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Management Dashboard</title>
+</head>
+<body>
+    <style>
+       body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.dashboard {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.form-section input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-section button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-section button:hover {
+  background-color: #218838;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+td, th {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.action-btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+    </style>
+
+
+  <div class="dashboard">
+    <h1>Employee Management Dashboard</h1>
+
+    <div class="form-section">
+      <input type="text" id="empName" placeholder="Employee Name">
+      <input type="text" id="empRole" placeholder="Role">
+      <input type="text" id="empDept" placeholder="Department">
+      <button onclick="addEmployee()">Add Employee</button>
+    </div>
+
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Department</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+     function addEmployee() {
+  const name = document.getElementById('empName').value;
+  const role = document.getElementById('empRole').value;
+  const dept = document.getElementById('empDept').value;
+
+  if (!name || !role || !dept) {
+    alert("Please fill all fields.");
+    return;
+  }
+
+  const table = document.getElementById('employeeTable').getElementsByTagName('tbody')[0];
+  const newRow = table.insertRow();
+
+  newRow.innerHTML = `
+    <td>${name}</td>
+    <td>${role}</td>
+    <td>${dept}</td>
+    <td>
+      <button class="action-btn edit-btn" onclick="editEmployee(this)">Edit</button>
+      <button class="action-btn delete-btn" onclick="deleteEmployee(this)">Delete</button>
+    </td>
+  `;
+
+  document.getElementById('empName').value = '';
+  document.getElementById('empRole').value = '';
+  document.getElementById('empDept').value = '';
+}
+
+function editEmployee(button) {
+  const row = button.closest('tr');
+  const nameCell = row.cells[0];
+  const roleCell = row.cells[1];
+  const deptCell = row.cells[2];
+
+  const name = prompt("Enter new name:", nameCell.innerText);
+  const role = prompt("Enter new role:", roleCell.innerText);
+  const dept = prompt("Enter new department:", deptCell.innerText);
+
+  if (name && role && dept) {
+    nameCell.innerText = name;
+    roleCell.innerText = role;
+    deptCell.innerText = dept;
+  }
+}
+
+function deleteEmployee(button) {
+  const row = button.closest('tr');
+  row.remove();
+}
+
+  </script>
+
+</body>
+</html>

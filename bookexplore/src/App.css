@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f7f7;
+}body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Container and layout tweaks */
+.MuiContainer-root {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Centered form input */
+form {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Book grid spacing */
+.MuiGrid-container {
+  padding: 1rem 0;
+}
+
+/* Book card adjustments */
+.MuiCard-root {
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background-color: #fff;
+}
+
+.MuiCard-root:hover {
+  transform: translateY(-5px);
+}
+
+/* Book image consistency */
+.MuiCardMedia-root {
+  object-fit: contain;
+  background-color: #fafafa;
+}
+
+/* Text ellipsis if title is too long */
+.MuiCardContent-root h6 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Authors text */
+.MuiCardContent-root p {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+/* Loader spacing */
+.MuiCircularProgress-root {
+  margin-top: 3rem;
+}
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  position: relative;
+  bottom: 0;
+  width: 100%; 
+  margin-top: 2rem;
+}
+
